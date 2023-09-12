@@ -4,6 +4,11 @@
 {% endblock %}
 {% block content %}
     <h1>{{ post.title }}</h1>
+    <h3>{{ post.category.name }}</h3>
     <p>-{{ post.author.first_name }} {{ post.author.last_name }}</p>
     <div>{{ post.body }}</div>
+    {% for comment in post.comment_set.all %}
+        <p>{{ comment.comment}}</p>
+        <p>{{ comment.user.first_name}} {{ comment.user.last_name}}</p>
+    {% endfor %}
 {% endblock %}
