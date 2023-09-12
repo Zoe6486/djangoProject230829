@@ -1,0 +1,26 @@
+{#{% extends "base.html" %}#}
+{#{% block title %}#}
+{#    my page title#}
+{#{% endblock %}#}
+{##}
+{#{% block content %}#}
+{#    {% for post in posts %}#}
+{#    <p>{{ post }} - {{ post.author }}</p>#}
+{#    <p>{{ post.body }}</p>#}
+{#    {% endfor %}#}
+{#{% endblock content%}#}
+{% extends "base.html" %}
+{% block title %}
+Home
+{% endblock %}
+
+
+{% block content %}
+    <a href="{% url 'create_post_form' %}">Add New</a>
+    {% for post in posts %}
+        <p>
+            <a href="{% url 'detail_post' id=post.id %}">{{ post }}</a>
+            - {{ post.author }}
+        </p>
+    {% endfor %}
+{% endblock %}
